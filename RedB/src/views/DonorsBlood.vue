@@ -15,16 +15,16 @@
           </div>
           <div class="links">
             <a
-              class="link text-decoration-none white--text"
+              class="link text-decoration-none black--text"
               v-for="(items, i) in links"
               :key="i"
               :href="items.url"
             >
-              <span class="white underline_left"></span>
-              <span :class="items.ico">
+              <span class="font-size:1.4vw black underline_left"></span>
+              <span style="font-size:1.4vw" :class="items.ico">
                 {{ items.title }}
               </span>
-              <span class="white underline_right"></span>
+              <span class="font-size:1.4vw black underline_right"></span>
             </a>
           </div>
           <a href="/LoginBlood"
@@ -49,9 +49,9 @@
               :key="i"
               :href="items.url"
             >
-              <span class="white underline_left"></span>
+              <span class="black underline_left"></span>
               <i :class="items.icon"></i>
-              <span class="white underline_right"></span>
+              <span class="black underline_right"></span>
             </a>
           </div>
           <div class="action_btn">
@@ -78,7 +78,7 @@
               </svg> -->
       </div>
       <v-card class="mx-auto mt-10 elevation-9 my6-card" max-width="1100"  outlined>
-        <v-card-title><h2 style="font-family:Times New Roman">Donors List</h2></v-card-title>
+        <v-card-title><h2 style="Josefin Sans">Donors List</h2></v-card-title>
         <v-data-table
           :headers="headers"
           :items="list"
@@ -100,7 +100,7 @@
                   single-line
                   hide-details
                 ></v-text-field>
-                <v-btn color="red lighten-2" class="ml-2" @click="addNew" >
+                <v-btn style="background: #112D4E;" dark class="ml-2" @click="addNew" >
                   <v-icon >mdi-plus</v-icon>Add
                 </v-btn>
               </div>
@@ -167,16 +167,6 @@
               v-if="item.id === editedItem.id"
             ></v-text-field>
             <span v-else>{{ item.weight }}</span>
-          </template>
-          <template v-slot:[`item.state`]="{ item }">
-            <v-text-field
-              v-model="editedItem.state"
-              :hide-details="true"
-              dense
-              single-line
-              v-if="item.id === editedItem.id"
-            ></v-text-field>
-            <span v-else>{{ item.state }}</span>
           </template>
           <template v-slot:[`item.dob`]="{ item }">
             <v-text-field
@@ -254,7 +244,7 @@ export default {
           ico: "mdi mdi-list-box",
         },
         {
-          url: "#",
+          url: "/requests",
           icon: "ri-contacts-line",
           title: "Blood Requests",
           ico: "mdi mdi-bell-alert-outline",
@@ -298,11 +288,7 @@ export default {
           value: "weight",
           sortable: false,
         },
-        {
-          text: "State",
-          value: "state",
-          sortable: false,
-        },
+        
         {
           text: "DOB",
           value: "dob",
@@ -325,7 +311,6 @@ export default {
         email: "",
         gender: "",
         weight: "",
-        state: "",
         dob: "",
         ldod: "",
       },
@@ -337,7 +322,6 @@ export default {
         email: "",
         gender: "",
         weight: "kg",
-        state: "",
         dob: "",
         ldod: "",
       },
@@ -349,102 +333,7 @@ export default {
   methods: {
     initialize() {
       this.list = [
-        {
-          id: 1,
-          name: "Poly Mokashi",
-          addr: "Line Bazar",
-          mob: 8169127051,
-          email: "pradeepmokashi9@gmail.com",
-          gender: "Male",
-          weight: "70kg",
-          state: "yes",
-          dob: "09-07-2002",
-          ldod: "09-10-2022",
-        },
-        {
-          id: 2,
-          name: "Poly Mokashi",
-          addr: "Line Bazar",
-          mob: 8169127051,
-          email: "pradeepmokashi9@gmail.com",
-          gender: "Male",
-          weight: "70kg",
-          state: "yes",
-          dob: "09-07-2002",
-          ldod: "09-10-2022",
-        },
-        {
-          id: 3,
-          name: "Poly Mokashi",
-          addr: "Line Bazar",
-          mob: 8169127051,
-          email: "pradeepmokashi9@gmail.com",
-          gender: "Male",
-          weight: "70kg",
-          state: "yes",
-          dob: "09-07-2002",
-          ldod: "09-10-2022",
-        },
-        {
-          id: 4,
-          name: "Poly Mokashi",
-          addr: "Line Bazar",
-          mob: 8169127051,
-          email: "pradeepmokashi9@gmail.com",
-          gender: "Male",
-          weight: "70kg",
-          state: "yes",
-          dob: "09-07-2002",
-          ldod: "09-10-2022",
-        },
-        {
-          id: 5,
-          name: "Poly Mokashi",
-          addr: "Line Bazar",
-          mob: 8169127051,
-          email: "pradeepmokashi9@gmail.com",
-          gender: "Male",
-          weight: "70kg",
-          state: "yes",
-          dob: "09-07-2002",
-          ldod: "09-10-2022",
-        },
-        {
-          id: 6,
-          name: "Poly Mokashi",
-          addr: "Line Bazar",
-          mob: 8169127051,
-          email: "pradeepmokashi9@gmail.com",
-          gender: "Male",
-          weight: "70kg",
-          state: "yes",
-          dob: "09-07-2002",
-          ldod: "09-10-2022",
-        },
-        {
-          id: 7,
-          name: "Poly Mokashi",
-          addr: "Line Bazar",
-          mob: 8169127051,
-          email: "pradeepmokashi9@gmail.com",
-          gender: "Male",
-          weight: "70kg",
-          state: "yes",
-          dob: "09-07-2002",
-          ldod: "09-10-2022",
-        },
-        {
-          id: 8,
-          name: "Poly Mokashi",
-          addr: "Line Bazar",
-          mob: 8169127051,
-          email: "pradeepmokashi9@gmail.com",
-          gender: "Male",
-          weight: "70kg",
-          state: "yes",
-          dob: "09-07-2002",
-          ldod: "09-10-2022",
-        },
+        
       ];
     },
 
@@ -515,21 +404,21 @@ ldod:this.editedItem.ldod
 };
 </script>
     <style>
-@import url("https://fonts.cdnfonts.com/css/event-horizon");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: "Helvetica", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 #app {
   /*background: url(https://images.unsplash.com/photo-1551970634-747846a548cb?ixlib)
         center/cover no-repeat;*/
-  background-color: #470202;
+  background-color: #F9F7F7;
   background: radial-gradient(
     ellipse at bottom,
-    rgb(67, 13, 13),
-    rgb(19, 3, 3)
+    #DBE2EF,
+        #393E46
   );
   overflow: hidden;
   z-index: 1;
@@ -570,9 +459,9 @@ ldod:this.editedItem.ldod
 .btn {
   position: relative;
   border: none;
-  background: #ff0000;
+  background: #112D4E;
   backdrop-filter: blur(10px);
-  color: black;
+  color: #F9F7F7;
   padding: 10px 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -812,8 +701,8 @@ ldod:this.editedItem.ldod
   right: 20px;
 }
 .theme--light.v-data-table.v-data-table--fixed-header thead th {
-  background: #ff9b9b;
-  color: #000000;
+  background: #DBE2EF;
+  color: #ffffff;
 }
 .w-100 {
   width: 100%;

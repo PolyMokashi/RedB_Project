@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LoginHospital from '../views/LoginHospital.vue'
 import LoginBlood from '../views/LoginBlood.vue'
-import AboutView from '../views/AboutView.vue'
+import BloodAbout from '../views/BloodAbout.vue'
 import RegisterView from '../views/RegisterView'
 import DashBoardHospital from '../views/DashBoardHospital'
 import DashBoardBlood from '../views/DashBoardBlood'
@@ -13,6 +13,8 @@ import BloodDetails from '../views/BloodDetails'
 import BloodRequests from '../views/BloodRequests'
 import HospitalRequests from '../views/HospitalRequests'
 import ReqStatus from '../views/ReqStatus'
+import AdminDashBoard from '../views/AdminDashBoard'
+import AdminLogin from '../views/AdminLogin'
 Vue.use(VueRouter)
 
 const routes = [
@@ -27,9 +29,9 @@ const routes = [
     component: LoginBlood
   },
   {
-    path: '/about',
-    name: 'about',
-    component: AboutView
+    path: '/BloodAbout',
+    name: 'blood_about',
+    component: BloodAbout
   },
   {
     path: '/register',
@@ -81,6 +83,16 @@ const routes = [
     path: '/status',
     name: 'request_status',
     component: ReqStatus
+  },
+  {
+    path: '/AdminDashboard',
+    name: 'admin_dashboard',
+    component: AdminDashBoard
+  },
+  {
+    path: '/AdminLogin',
+    name: 'admin_login',
+    component: AdminLogin
   },
 ]
 

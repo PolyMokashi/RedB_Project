@@ -15,16 +15,16 @@
             </div>
             <div class="links">
               <a
-                class="link text-decoration-none white--text"
+                class="link text-decoration-none  black--text"
                 v-for="(items, i) in links"
                 :key="i"
                 :href="items.url"
               >
-                <span class="white underline_left"></span>
-                <span :class="items.ico">
+                <span class="font-size:1.4vw black underline_left"></span>
+                <span style="font-size:1.4vw" :class="items.ico">
                   {{ items.title }}
                 </span>
-                <span class="white underline_right"></span>
+                <span class="font-size:1.4vw black underline_right"></span>
               </a>
             </div>
             <a href="/LoginBlood"
@@ -42,18 +42,7 @@
             class="fill-height d-flex justify-space-between align-center"
           >
             <!-- <div class="logo"><a href="" target="_blank_"><img width="40" src="https://i.ibb.co/LdPZt21/Picture2.png" alt="" /></a></div> -->
-            <div class="links">
-              <a
-                class="link text-decoration-none white--text"
-                v-for="(items, i) in links"
-                :key="i"
-                :href="items.url"
-              >
-                <span class="white underline_left"></span>
-                <i :class="items.icon"></i>
-                <span class="white underline_right"></span>
-              </a>
-            </div>
+            
             <div class="action_btn">
               <v-btn fab small><i class="ri-file-download-line"></i></v-btn>
             </div>
@@ -78,7 +67,7 @@
                 </svg> -->
         </div>
         <v-card class="mx-auto mt-10 elevation-9 my4-card" max-width="1100"  outlined>
-          <v-card-title><h2 style="font-family:Times New Roman">Blood Collection Details</h2></v-card-title>
+          <v-card-title><h2 style="font-family: Josefin Sans">Blood Collection Details</h2></v-card-title>
           <v-data-table
             :headers="headers"
             :items="list"
@@ -100,7 +89,7 @@
                     single-line
                     hide-details
                   ></v-text-field>
-                  <v-btn color="red lighten-2" class="ml-2" @click="addNew" >
+                  <v-btn color="#112D4E" dark class="ml-2" @click="addNew" >
                     <v-icon >mdi-plus</v-icon>Add
                   </v-btn>
                 </div>
@@ -367,12 +356,12 @@ this.list=alldata;
   };
   </script>
       <style>
-  @import url("https://fonts.cdnfonts.com/css/event-horizon");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
   * {
     margin: 0;
     padding: 0;
     text-decoration: none;
-    font-family: "Helvetica", sans-serif;
+    font-family: "Josefin Sans", sans-serif;
   }
   #app {
     /*background: url(https://images.unsplash.com/photo-1551970634-747846a548cb?ixlib)
@@ -664,8 +653,8 @@ this.list=alldata;
     right: 20px;
   }
   .theme--light.v-data-table.v-data-table--fixed-header thead th {
-    background: #ff9b9b;
-    color: #000000;
+    background: #112D4E;
+    color: #ffffff;
   }
   .w-100 {
     width: 100%;

@@ -83,8 +83,6 @@
         dark
         color="black"
         :disabled="invalid"
-        to="/Hospital"
-        link
       >
         submit
       </v-btn>
@@ -146,6 +144,9 @@ export default {
   methods: {
     submit() {
       this.$refs.observer.validate();
+      if (this.username=="apex"||this.password=="apex@1234"){
+        this.$router.push({ path: "/Hospital" });
+      }
     },
     clear() {
       this.name = "";

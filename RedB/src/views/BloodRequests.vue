@@ -15,16 +15,16 @@
           </div>
           <div class="links">
             <a
-              class="link text-decoration-none white--text"
+              class="link text-decoration-none black--text"
               v-for="(items, i) in links"
               :key="i"
               :href="items.url"
             >
-              <span class="white underline_left"></span>
-              <span :class="items.ico">
+              <span class="font-size:1.4vw black underline_left"></span>
+              <span style="font-size:1.4vw" :class="items.ico">
                 {{ items.title }}
               </span>
-              <span class="white underline_right"></span>
+              <span class="font-size:1.4vw black underline_right"></span>
             </a>
           </div>
           <a href="/LoginBlood"
@@ -42,18 +42,7 @@
           class="fill-height d-flex justify-space-between align-center"
         >
           <!-- <div class="logo"><a href="" target="_blank_"><img width="40" src="https://i.ibb.co/LdPZt21/Picture2.png" alt="" /></a></div> -->
-          <div class="links">
-            <a
-              class="link text-decoration-none white--text"
-              v-for="(items, i) in links"
-              :key="i"
-              :href="items.url"
-            >
-              <span class="white underline_left"></span>
-              <i :class="items.icon"></i>
-              <span class="white underline_right"></span>
-            </a>
-          </div>
+          
           <div class="action_btn">
             <v-btn fab small><i class="ri-file-download-line"></i></v-btn>
           </div>
@@ -83,7 +72,7 @@
         outlined
       >
         <v-card-title
-          ><h2 style="font-family: Times New Roman">
+          ><h2 style="font-family: Josefin Sans">
             Blood Requests
           </h2></v-card-title
         >
@@ -91,7 +80,6 @@
           :headers="headers"
           :items="list"
           :search="search"
-          :item-key="itemKey"
           class="elevation-2"
           fixed-header
           height="350px"
@@ -191,6 +179,7 @@ export default {
 },
   data() {
     return {
+      acceptedItems:[],
         snackbar:false,
         snackbar2:false,
         snackbar3:false,
@@ -259,18 +248,16 @@ export default {
       list: [],
       editedIndex: -1,
       editedItem: {
-        id: 0,
         name: "",
         bloodgrp: "",
         hospital: "",
         quantity: "",
       },
       defaultItem: {
-        id: 0,
         name: "",
         bloodgrp: "",
         hospital: "",
-        quantity: "bags",
+        quantity: "",
       },
     };
   },
@@ -280,78 +267,6 @@ export default {
   methods: {
     initialize() {
       this.list = [
-        {
-          id: 1,
-          name: "Poly Mokashi",
-          bloodgrp: "A+",
-          hospital: "D Y Patil Hospital",
-          quantity: "2 bags",
-          accepted: false, 
-        rejected: false,
-        },
-        {
-          id: 2,
-          name: "Poly Mokashi",
-          bloodgrp: "A+",
-          hospital: "D Y Patil Hospital",
-          quantity: "2 bags",
-          accepted: false, 
-        rejected: false,
-        },
-        {
-          id: 3,
-          name: "Poly Mokashi",
-          bloodgrp: "A+",
-          hospital: "D Y Patil Hospital",
-          quantity: "2 bags",
-          accepted: false, 
-        rejected: false,
-        },
-        {
-          id: 4,
-          name: "Poly Mokashi",
-          bloodgrp: "A+",
-          hospital: "D Y Patil Hospital",
-          quantity: "2 bags",
-          accepted: false, 
-        rejected: false,
-        },
-        {
-          id: 5,
-          name: "Poly Mokashi",
-          bloodgrp: "A+",
-          hospital: "D Y Patil Hospital",
-          quantity: "2 bags",
-          accepted: false, 
-        rejected: false,
-        },
-        {
-          id: 6,
-          name: "Poly Mokashi",
-          bloodgrp: "A+",
-          hospital: "D Y Patil Hospital",
-          quantity: "2 bags",
-          accepted: false, 
-        rejected: false,
-        },
-        {
-          id: 7,
-          name: "Poly Mokashi",
-          bloodgrp: "A+",
-          hospital: "D Y Patil Hospital",
-          quantity: "2 bags",
-          accepted: false, 
-        rejected: false,
-        },
-        {
-          id: 8,
-          name: "Poly Mokashi",
-          bloodgrp: "A+",
-          hospital: "D Y Patil Hospital",
-          quantity: "2 bags",
-          accepted: false, 
-        rejected: false,
-        },
       ];
     },
 
@@ -375,7 +290,7 @@ console.log(this.list);
       item.accepted = true;
       item.rejected = true;
       this.acceptedItems.push(item);
-      
+      console.log(this.acceptedItems)
     },
 
     moveToRejected(item) {
@@ -403,12 +318,12 @@ console.log(data)
 };
 </script>
       <style>
-@import url("https://fonts.cdnfonts.com/css/event-horizon");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: "Helvetica", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 #app {
   /*background: url(https://images.unsplash.com/photo-1551970634-747846a548cb?ixlib)
@@ -700,8 +615,8 @@ console.log(data)
   right: 20px;
 }
 .theme--light.v-data-table.v-data-table--fixed-header thead th {
-  background: #ff9b9b;
-  color: #000000;
+  background: #DBE2EF;
+  color: #ffffff;
 }
 .w-100 {
   width: 100%;

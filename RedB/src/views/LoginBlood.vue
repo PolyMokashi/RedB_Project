@@ -1,8 +1,17 @@
 <template  >
   <v-app>
-    <v-container fluid fill-height class="background">
+    <v-container class="fill-height d-flex justify-space-between align-center" >
+      <div class="bg">
+              <div class="lamp">
+                <div class="lava">
+                  <div class="blob" v-for="i in 7" :key="i"></div>
+                  <div class="blob top"></div>
+                  <div class="blob bottom"></div>
+                </div>
+              </div>
+              </div>
       <v-layout align-center justify-center>
-        <v-card class="elevation-9 my-card">
+        <v-card class="elevation-9 my-card" color="grey lighten-0">
           <v-toolbar dark color="black">
             <v-toolbar-title>
               Blood Bank Login
@@ -14,16 +23,17 @@
                 <v-col>
                   <v-card-text>
                     <v-row>
-                      <v-col class="pr-mr-0">
-                        <v-avatar size="130">
+                      <!-- <v-col class="pr-mr-0"> -->
+                        <!-- <v-avatar size="130">
                           <img
                             src="https://i.ibb.co/LdPZt21/Picture2.png"
                             alt="RedB"
                           />
-                        </v-avatar>
-                      </v-col>
-                     <v-card-title ><h2><span style="color:red">R</span>ed<span style="color:red">B</span></h2></v-card-title>
-                      <v-col class="pl-ml-0">
+                        </v-avatar> -->
+                      <!-- </v-col> -->
+                      
+                      <v-col >
+                        <v-card-title><h1><span style="color:red">R</span>ed<span style="color:red">B</span></h1></v-card-title>
                         <!-- <v-card-title
                           >Intelligent Blood Management System for Hospitals and
                           Blood Banks</v-card-title
@@ -34,8 +44,8 @@
                   </v-card-text>
                   <div>
                     <h3 class="ml-5">
-                      No account?
-                      <router-link color="red" to="/RegisterBlood"
+                      Administrator?
+                      <router-link color="red" to="/AdminLogin"
                         >click here</router-link
                       >
                     </h3>
@@ -119,10 +129,7 @@ export default {
   border-bottom-right-radius: 400px !important;
 }
 
-.background {
-  background-image: url("https://media.istockphoto.com/id/1199363232/photo/abstract-red-and-black-are-light-pattern-with-the-gradient-is-the-with-floor-wall-metal.jpg?b=1&s=170667a&w=0&k=20&c=_GRc_SXY1XtsWsfs_67JyF6S5juhYlg-Lxt8IG5yl7E=");
-  background-size: cover;
-}
+
 
 .my-card {
   width: 100%;

@@ -1,8 +1,17 @@
 <template  >
   <v-app>
-    <v-container fluid fill-height class="background">
+    <v-container class="fill-height d-flex justify-space-between align-center" >
+      <div class="bg">
+              <div class="lamp">
+                <div class="lava">
+                  <div class="blob" v-for="i in 7" :key="i"></div>
+                  <div class="blob top"></div>
+                  <div class="blob bottom"></div>
+                </div>
+              </div>
+              </div>
       <v-layout align-center justify-center>
-        <v-card class="elevation-9 my-card">
+        <v-card class="elevation-9 my-card" color="grey lighten-0">
           <v-toolbar dark color="black">
             <v-toolbar-title>
               Hospital Login
@@ -14,17 +23,10 @@
                 <v-col>
                   <v-card-text>
                     <v-row>
-                      <v-col class="pr-mr-0">
-                       <v-avatar size="130" width="130">
-                        
-                          <img
-                            src="https://i.ibb.co/LdPZt21/Picture2.png"
-                            alt="RedB"
-                          />
-                        </v-avatar>
+                      <v-col> 
+                        <v-card-title ><h1><span style="color:red">R</span>ed<span style="color:red">B</span></h1></v-card-title>
+
                       </v-col>
-                      <v-card-title ><h2><span style="color:red">R</span>ed<span style="color:red">B</span></h2></v-card-title>
-                      <v-col class="pl-ml-0"> </v-col>
                     </v-row>
 
                     <!-- <v-card-title
@@ -35,8 +37,8 @@
                   </v-card-text>
                   <div>
                     <h3 class="ml-5">
-                      No account?
-                      <router-link color="red" to="/RegisterHospital"
+                      Administrator?
+                      <router-link color="red" to="/AdminLogin"
                         >click here</router-link
                       >
                     </h3>
@@ -131,6 +133,6 @@ export default {
   width: 100%;
   max-width: 1200px;
   background-color: transparent;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 </style>

@@ -20,7 +20,7 @@
             :href="items.url"
           >
             <span class="font-size:1.4vw black underline_left"></span>
-            <span style="font-size:1.4vw" :class="items.ico">
+            <span style="font-size: 1.4vw" :class="items.ico">
               {{ items.title }}
             </span>
             <span class="font-size:1.4vw black underline_right"></span>
@@ -41,9 +41,21 @@
         class="fill-height d-flex justify-space-between align-center"
       >
         <!-- <div class="logo"><a href="" target="_blank_"><img width="40" src="https://i.ibb.co/LdPZt21/Picture2.png" alt="" /></a></div> -->
+        <div class="links">
+          <a
+            class="link text-decoration-none white--text"
+            v-for="(items, i) in links"
+            :key="i"
+            :href="items.url"
+          >
+            <span class="black underline_left"></span>
+            <i :class="items.icon"></i>
+            <span class="black underline_right"></span>
+          </a>
+        </div>
         <!-- <div class="action_btn">
-                  <v-btn fab small><i class="ri-file-download-line"></i></v-btn>
-                </div> -->
+                    <v-btn fab small><i class="ri-file-download-line"></i></v-btn>
+                  </div> -->
       </v-container>
     </nav>
     <div class="bg">
@@ -58,32 +70,13 @@
       <v-container fill-height>
         <!-- <v-layout> -->
         <v-layout align-center justify-center class="pt-16">
-          <v-row dense>
-            <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
-              <v-hover v-slot="{ hover }" open-delay="100">
-              <v-card style="text-align: center;font-size: 40px;" elevation-9 height="590" class="cardmy" :color=card.color :elevation="hover ? 16 : 2"
-              :class="{ 'on-hover': hover }">
-                <v-card-title class="white--text" style="font-size: 30px;" :inner-text.prop="card.title"></v-card-title>
-                <h1 style="color:White">{{ card.value }}</h1>
-                  <v-sheet class="pt-16 mt-16" :color="card.color">
-                    <v-sparkline
-                    :height='height'
-                      :value="value"
-                      :gradient=gradient
-                      :smooth="radius || false"
-                      :padding="padding"
-                      :line-width="width"
-                      :stroke-linecap="lineCap"
-                      :gradient-direction="gradientDirection"
-                      :fill="fill"
-                      :type="type"
-                      :auto-line-width="autoLineWidth"
-                      auto-draw
-                    ></v-sparkline>
-                    
-                  </v-sheet>
-              </v-card>
-            </v-hover>
+          <v-row>
+            <v-col cols="12" sm="6">
+              <v-img :src="profileImage" height="300"></v-img>
+            </v-col>
+            <v-col cols="12" sm="6">
+              <h2>{{ aboutTitle }}</h2>
+              <p>{{ aboutContent }}</p>
             </v-col>
           </v-row>
         </v-layout>
@@ -91,157 +84,112 @@
     </div>
   </v-app>
 </template>
-    
-    
-    <script>
-// const gradients = [
-//   ["#222"],
-//   ["#42b3f4"],
-//   ["red", "orange", "yellow"],
-//   ["purple", "violet"],
-//   ["#00c6ff", "#F0F", "#FF0"],
-//   ["#f72047", "#ffd200", "#1feaea"],
-// ];
-import axios from 'axios';
-export default {
-  data() {
-    return {
-      width: 5,
-      height: 120,
-      radius: 15,
-      padding: 15,
-      lineCap: "round",
-      gradient:["green","red","blue","pink"],
-      // gradient: gradients[5],
-      value: [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 5, 9, 11],
-      gradientDirection: "top",
       
-      // gradients: [
-      //   ["#222"],
-      //   ["#42b3f4"],
-      //   ["red", "orange", "yellow"],
-      //   ["purple", "violet"],
-      //   ["#00c6ff", "#F0F", "#FF0"],
-      //   ["#f72047", "#ffd200", "#1feaea"],
-      // ],
-      fill: false,
-      type: "trend",
-      autoLineWidth: false,
-      interval: {},
-      value2: 0,
-      links: [
-        {
-          url: "/BloodBank",
-          icon: "ri-home-smile-2-line",
-          title: "Home",
-          ico: "mdi mdi-home-outline",
-        },
-        {
-          url: "/donors",
-          icon: "ri-user-line",
-          title: "Donors",
-          ico: "mdi mdi-water-plus",
-        },
-        {
-          url: "/details",
-          icon: "ri-service-line",
-          title: "Blood Details",
-          ico: "mdi mdi-list-box",
-        },
-        {
-          url: "/requests",
-          icon: "ri-contacts-line",
-          title: "Blood Requests",
-          ico: "mdi mdi-bell-alert-outline",
-        },
+      
+      <script>
+  // const gradients = [
+  //   ["#222"],
+  //   ["#42b3f4"],
+  //   ["red", "orange", "yellow"],
+  //   ["purple", "violet"],
+  //   ["#00c6ff", "#F0F", "#FF0"],
+  //   ["#f72047", "#ffd200", "#1feaea"],
+  // ];
+  export default {
+    data() {
+      return {
+        profileImage: '/path/to/profile-image.jpg',
+      aboutTitle: '',
+      aboutContent: '',
+        // gradient: gradients[5],
+        
+        
+        // gradients: [
+        //   ["#222"],
+        //   ["#42b3f4"],
+        //   ["red", "orange", "yellow"],
+        //   ["purple", "violet"],
+        //   ["#00c6ff", "#F0F", "#FF0"],
+        //   ["#f72047", "#ffd200", "#1feaea"],
+        // ],
+        fill: false,
+        type: "trend",
+        autoLineWidth: false,
+        interval: {},
+        value2: 0,
+        links: [
+          {
+            url: "/BloodBank",
+            icon: "ri-home-smile-2-line",
+            title: "Home",
+            ico: "mdi mdi-home-outline",
+          },
+          {
+            url: "/donors",
+            icon: "ri-user-line",
+            title: "Donors",
+            ico: "mdi mdi-water-plus",
+          },
+          {
+            url: "/details",
+            icon: "ri-service-line",
+            title: "Blood Details",
+            ico: "mdi mdi-list-box",
+          },
+          {
+            url: "/requests",
+            icon: "ri-contacts-line",
+            title: "Blood Requests",
+            ico: "mdi mdi-bell-alert-outline",
+          },
+          // {
+          //   url: "/acceptedrequests",
+          //   icon: "ri-contacts-line",
+          //   title: "Accepted Requests",
+          //   ico:"mdi mdi-check-decagram-outline"
+          // },
+          {
+            url: "/about",
+            icon: "ri-contacts-line",
+            title: "About",
+            ico: "mdi mdi-information-outline",
+          },
+        ],
+        cards: [
+          { title: "Blood Requests", value: "120", flex: 4,color:"red",color2:"#367E18", rotate: "275"},
+          { title: "Donated Blood", value: "150L", flex: 4, color:"#00008b",color2:"#A020F0", rotate: "190"},
+          { title: "No. of Donors", value: "94", flex: 4,color:"#A020F0",color2:"#03001C", rotate: "170" },
+        ],
+        // req:[
         // {
-        //   url: "/acceptedrequests",
-        //   icon: "ri-contacts-line",
-        //   title: "Accepted Requests",
-        //   ico:"mdi mdi-check-decagram-outline"
-        // },
-        {
-          url: "/BloodAbout",
-          icon: "ri-contacts-line",
-          title: "About",
-          ico: "mdi mdi-information-outline",
-        },
-      ],
-      cards: [
-        { title: "Blood Requests", value: "120", flex: 4,color:"red",color2:"#367E18", rotate: "275"},
-        { title: "no. of donated Blood bags", value: "278", flex: 4, color:"#00008b",color2:"#A020F0", rotate: "190"},
-        { title: "No. of Donors", value: "94", flex: 4,color:"#A020F0",color2:"#03001C", rotate: "170" },
-      ],
-      // req:[
-      // {
-      //     url: "/requests",
-      //     icon: "ri-home-smile-2-line",
-      //     title: "Accepted Requests",
-      //     ico:"mdi mdi-check-decagram-outline"
-      //   },
-      // ]
-    };
-  },
-  methods:{
-      async bloodBankRequest(){
-   await axios
-    .get("http://localhost:4000/get/blood/request").then((result)=>{
-
-let alldata = result.data;
-console.log(alldata)
-console.log(alldata[0])
-const d_bagsArray = alldata.map(obj => obj.d_bags);
-console.log(d_bagsArray)
-this.count=alldata.length;
-this.count=this.count.toString();
-this.cards[0].value = this.count;
-console.log(this.count);
-
-    }).catch((err)=>{
-      console.log(err);
-    })
-  },
-
-
-      async donors(){
-   await axios
-    .get("http://localhost:4000/get/donors").then((result)=>{
-
-let alldata = result.data;
-console.log(alldata)
-
-// this.bags=alldata.d_bags;
-console.log(this.bags)
-this.donorcount=alldata.length;
-this.donorcount=this.donorcount.toString();
-this.cards[2].value = this.donorcount;
-console.log(this.count);
-
-    }).catch((err)=>{
-      console.log(err);
-    })
-  },
-
-
+        //     url: "/requests",
+        //     icon: "ri-home-smile-2-line",
+        //     title: "Accepted Requests",
+        //     ico:"mdi mdi-check-decagram-outline"
+        //   },
+        // ]
+      };
+      
     },
-
-  beforeDestroy () {
-      clearInterval(this.interval)
+    
+    
+      methods:{
+        fetchAboutContent() {
+      // Simulated asynchronous API call or store retrieval
+      setTimeout(() => {
+        this.aboutTitle = 'About Me';
+        this.aboutContent =
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vestibulum ultrices est, ac dapibus ante iaculis vitae. In congue sollicitudin est a consectetur. Proin et dolor id mauris fermentum sodales sed id massa. Vestibulum vel ultricies risus.';
+      }, 1000);
     },
-    mounted () {
-      this.bloodBankRequest();
-        this.donors();
-      this.interval = setInterval(() => {
-        if (this.value2 === 100) {
-          return (this.value2 = 0)
-        }
-        this.value2 += 10
-      }, 1000)
+      },
+      mounted(){
+        this.fetchAboutContent();
     },
-};
-</script>
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+  };
+  </script>
+      <style>
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -250,7 +198,7 @@ console.log(this.count);
 }
 #app {
   /*background: url(https://images.unsplash.com/photo-1551970634-747846a548cb?ixlib)
-        center/cover no-repeat;*/
+          center/cover no-repeat;*/
   background-color: #ffffff;
   background: radial-gradient(
     ellipse at bottom,
@@ -293,19 +241,19 @@ console.log(this.count);
 }
 .link:hover .underline_left {
   width: 50%;
-  color:red;
+  color: red;
   left: 0;
 }
 .link:hover .underline_right {
   width: 50%;
-  color:red;
+  color: red;
   right: 0;
 }
 
 .btn {
   position: relative;
   border: none;
-  background: #112D4E;
+  background: #112d4e;
   backdrop-filter: blur(10px);
   color: rgb(255, 255, 255);
   padding: 10px 20px;
@@ -371,19 +319,19 @@ console.log(this.count);
   border-radius: 50%;
   background: #ffffff;
   /* Other sample colors:
-      Orange: #e8630a
-      Pink: #EA3281
-      Fuscia: #E71669
-      Purple: #661BAC
-      Yellow: #FDC600
-      Kermit green: #75AC25
-      Light blue: #3283B5
-      Dark blue: #0A5D9A
-      Gunmetal: #232F37
-      BGLight: #1B2735
-      BGDark: #090a0f
-      Want more colors? check out https://coolors.co/ for inspiration.
-      */
+        Orange: #e8630a
+        Pink: #EA3281
+        Fuscia: #E71669
+        Purple: #661BAC
+        Yellow: #FDC600
+        Kermit green: #75AC25
+        Light blue: #3283B5
+        Dark blue: #0A5D9A
+        Gunmetal: #232F37
+        BGLight: #1B2735
+        BGDark: #090a0f
+        Want more colors? check out https://coolors.co/ for inspiration.
+        */
   position: absolute;
 }
 .blob.top {
@@ -547,7 +495,7 @@ console.log(this.count);
   right: 20px;
 }
 /* .my-card {
-  background-color: transparent;
-  opacity: 0.8;
-} */
+    background-color: transparent;
+    opacity: 0.8;
+  } */
 </style>
